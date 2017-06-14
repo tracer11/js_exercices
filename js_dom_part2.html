@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .fancy {
+      font-style: italic;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <p onmousedown="changeParagraph(this)">First p tag</p>
+  <p onmousedown="changeParagraph(this)">Second p tag</p>
+  <p onmousedown="changeParagraph(this)">Third p tag</p>
+  <p onmousedown="changeParagraph(this)">Fourth p tag</p>
+
+  <button onclick="styleAllParagraphs()">Toggle Paragraph</button>
+  <script>
+  function styleAllParagraphs() {
+    var ptags = document.querySelectorAll("p");
+    for (var i = 0; i < ptags.length; i++) {
+      var ptag = ptags[i];
+      ptag.classList.toggle("fancy");
+    }
+  }
+
+    function changeParagraph(ptag) {
+      ptag.style["color"] = "red";
+    }
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <style>
+    .complete {
+      text-decoration: line-through;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <p onclick="toggleTask(this)">Pay bills</p>
+  <p onclick="toggleTask(this)">Wash car</p>
+  <p onclick="toggleTask(this)">Get laundry</p>
+  <button onclick="hideTask()">Hide Completed Tasks</button>
+  <button onclick="showTask()">Show All Tasks</button>
+
+  <h3>Number of completed tasks: <span id="num-complete">0</span></h3>
+
+  <script>
+    function toggleTask(ptag) {
+        ptag.classList.toggle("complete");
+        var completedTasks = document.querySelectorAll(".complete");
+        var countTag = document.querySelector("#num-complete");
+        countTag.innerHTML = completedTasks.length;
+    }
+
+    function hideTask() {
+      var completedTasks = document.querySelectorAll(".complete");
+      for (var i = 0; i < completedTasks.length; i++) {
+        var completedTask = completedTasks[i];
+        completedTask.classList.add("hidden")
+      }
+    }
+
+    function showTask() {
+      var completedTasks = document.querySelectorAll(".complete");
+      for (var i = 0; i < completedTasks.length; i++) {
+        var completedTask = completedTasks[i];
+        completedTask.classList.remove("hidden")
+      }
+    }
+  </script>
+</body>
+</html>
